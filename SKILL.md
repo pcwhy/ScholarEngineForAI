@@ -1,0 +1,134 @@
+---
+name: scholar-engine
+description: Professional writing, review, pipeline-design, and results-documentation protocol for data-driven research. Use when Codex needs to draft, rewrite, tighten, or critique abstracts, introductions, methodology sections, related work, experiments, discussions, conclusions, rebuttals, technical reports, result summaries, figure or table documentation, or full manuscripts in a principal-investigator voice; when output should be publication-ready LaTeX or rigorous research documentation; or when weak, undergraduate-style prose must be replaced with precise, reader-facing scientific writing.
+---
+
+# Scholar Engine
+
+## Overview
+
+Apply this skill to produce publication-ready and archive-ready prose for any data-driven research with a consistent first-person research voice, a logically progressive structure, and explicit design rationale, while maintaining a sustainable automated pipeline from data collection to result rendering and documentation. Operate with the standards of a distinguished scientist and senior reviewer: write for expert readers, preserve implementation rigor, and prefer direct, compile-ready LaTeX whenever the target artifact is a paper section.
+
+## Core Writing Rules
+
+- Use the first-person research voice: `We`.
+- Write for expert readers who know the field but not the specific system.
+- Ensure the prose is logically clear, smooth, easy to follow, and rich in technical and scientific insight.
+- Must use precision, causal logic, and empirical justification over inflated vocabulary.
+- Remove pedagogy, filler, and unsupported emphasis.
+- Define each abbreviation or specialized term at its first appearance.
+- Do not invent new concepts, coined labels, or awkward nominalized nouns without user approval.
+- Do not create any new hyphen (-) connected concepts without user approval.
+- Replace vague claims with concrete properties, mechanisms, or measured outcomes.
+- Keep references to figures, tables, and assets local to the current folder.
+- Use no sales language, hype, or promotional phrasing.
+- Remove AI-defensive filler such as `It is worth mentioning that` or `It is important to note`.
+- Remove the pattern of stating a fact and then separately emphasizing that it is important; let the logic or evidence carry the importance.
+- Avoid abbreviated terms in figures and tables whenever possible; if an abbreviation must be used, include a footnote within the paper asset that defines it.
+- Require each paper-asset label to match its filename stem exactly, unless the user explicitly overrides this rule.
+- Use only the `[h]` float option for figures and tables unless the user explicitly overrides this rule.
+
+## Research Pipeline Architecture
+
+Maintain a four-layer decoupled architecture throughout the project to prevent logic entanglement and to keep reruns reproducible.
+
+1. Raw Data Layer: isolate data sourcing, scraping, cleaning, and external ingestion from downstream experimentation.
+2. Experimental Layer: keep algorithm implementations, training code, benchmarking routines, and simulation logic pure and independent of manuscript formatting.
+3. Data Interaction Layer: store raw outputs, metrics, and intermediate artifacts in machine-readable bridges such as CSV, JSON, or databases.
+4. Rendering Layer: generate LaTeX, TikZ figures, Booktabs tables, posters, and slides only from the structured outputs in the data interaction layer.
+
+Do not collapse these layers for convenience. When designing or revising a workflow, preserve clear boundaries and explicit handoffs between them.
+Organize these layers into separate folders or clearly separated directory trees so the project structure reflects the architectural boundaries.
+
+## Workflow
+
+1. Identify the target artifact, such as an abstract, a section rewrite, a result summary, a figure or table note, a review response, a technical report, or a full manuscript pass.
+2. Locate the artifact inside the four-layer pipeline before editing; determine whether the request belongs to raw data, experimentation, data exchange, or rendering.
+3. Infer the paper's logical role for that artifact before drafting; do not write sentences in isolation from section purpose.
+4. Reconstruct the argument in the standard progression: problem setup, methodology, evaluation setting, results, discussion or conclusion.
+5. Rewrite for density and continuity by merging short sentences into tighter, logically linked prose where clarity improves.
+6. Justify each technical choice with a design principle, failure mode, or empirical observation.
+7. Check terminology, notation, numerical claims, and dependencies for consistency with the surrounding document and the underlying result files.
+8. Emit clean LaTeX when the user is working in LaTeX or when a paper section is requested without another format.
+
+## Execution Standards
+
+- Preserve full experimental logic; do not simplify algorithms, shrink workloads, or reduce computational fidelity merely to avoid timeouts.
+- Before modifying the mechanisms of a method or other core experimental logic, create a complete backup or snapshot of the project so the prior state can be restored.
+- Add progress reporting to long-running scripts, for example progress bars or periodic status updates.
+- When a rerun changes result files, ensure dependent figures, tables, and manuscript numbers are regenerated from the updated data.
+- Treat the data interaction layer as the single source of truth for rendered artifacts.
+- Use `booktabs` conventions for tables and, for IEEE papers, wrap every table with `\resizebox` unless the user explicitly overrides this requirement; avoid second-line wrapping in the first column whenever possible; produce publication-grade graphics that align with IEEE expectations and high-end scientific visualization practice.
+- Require all flow diagrams to use a white or transparent background.
+- Create a PNG proof for each figure, read or inspect that proof directly, and confirm that nothing is visually wrong before inserting the figure into the manuscript.
+- Inspect each generated figure for readability, correctness, layout quality, and publication suitability before placing it into the manuscript.
+- Render each table when it is generated or updated, and visually inspect the rendered result before inserting or keeping it in the manuscript.
+- Treat generated manuscript assets as content fragments, not full manuscript floats, unless the user explicitly requests otherwise. Generated figure or table files should contain only the asset body; the paper source must own the surrounding float wrapper, caption, label, placement, and local presentation controls at the subsection where the asset is actually used.
+- Default flowgraphs and flow diagrams to high-quality vector output unless the user explicitly requests a raster format.
+- Create or maintain a summary memo for each generated research-output asset, including figures, tables, paper sections, full papers, presentations, posters, and slide decks.
+- Maintain a dedicated `memo/` folder, or an equivalently clear memo directory, for project-level modification notes and lessons learned.
+- Create or maintain a Markdown document for each figure and table that records how the asset was generated, including source data, scripts, parameters, and output files.
+- Immediately after creating a figure or table, write a concise summary that records what the asset shows and why it matters in the manuscript.
+- Immediately after creating any research-output asset, record what it contains, what it shows or argues, where it is intended to be used, and any dependencies needed to regenerate or revise it.
+- After the user is satisfied with a figure or table revision, update its Markdown generation document so the accepted version and workflow are accurately documented.
+- After the user is satisfied with any asset revision or tailorization, update the corresponding summary memo so the accepted version is accurately documented.
+- After each user-instructed rebuild or modification, create or update a memo entry in the memo folder that documents what was done, why it was done, what changed, the observed result, and lessons learned.
+- Ask the user for permission before destructive restructuring or removal that would materially change the recoverable project state after a backup has been created.
+
+## Section Rules
+
+- For abstracts, write exactly one paragraph, do not exceed one-fifth of a page unless the venue or user specifies otherwise, give at most minimal background, define the method directly, and state the novelty and main findings without internal shorthand.
+- In the abstract's results portion, report only the two or three most significant findings or novelties, using the user's preferred count when specified.
+- In the abstract's results portion, report results quantitatively whenever data exist, and avoid purely qualitative result claims unless quantitative values are unavailable or the user explicitly permits them.
+- Enforce the abstract style as concise, direct, and evidence-led: open with the problem in one sentence without overteaching, frame the task clearly, introduce the method or evaluation setup plainly before rhetoric, report only the few takeaways that matter, keep the language technical but readable, maintain a PI-style tone with no hype or padding, and let evidence rather than exaggerated superiority claims carry the argument.
+- For introductions, must follow five paragraphs: background, gap, motivation/core idea, itemized contributions, then paper organization.
+- For methodology, define notation consistently and explain why each module or modeling choice exists.
+- For results, describe evaluation scenarios clearly, interpret the implications of the numbers, and discuss limitations or boundary conditions.
+- Report no orphaned result in the paper. Every reported result must be traceable to supporting figures, tables, or documented result artifacts.
+- For related work, synthesize the literature by approach or philosophy instead of listing papers one by one.
+- For full-paper editing, allow no orphaned paper asset of any kind. Ensure every figure, table, algorithm, equation block, appendix asset, and related manuscript asset is cited, integrated, and discussed where appropriate in the paper body; place each asset only in the subsection where it is actually used and do not dump assets at the beginning of the paper; ask the user for permission before removing any orphaned asset.
+- For generated paper assets, keep `\begin{figure}` / `\begin{table}`, `\caption`, `\label`, centering, font-size directives, and placement options in the manuscript source by default. Do not `\input` a complete generated float directly into the manuscript unless the user explicitly requests that pattern.
+
+Read [references/section-protocols.md](/Users/yongxinliu/.codex/skills/scholar-engine/references/section-protocols.md) when the task needs section-specific checks, banned-language cleanup, or a sharper rewrite rubric.
+
+## Editing Heuristics
+
+- Strip undergraduate-level filler, rhetorical padding, and motivational throat-clearing.
+- Replace passive or impersonal constructions when they weaken agency or logic.
+- Avoid the words `plausible`, `contextual`, `benchmark`, `very`, `fast`, `a lot`, and `good` unless quoting source text that must be preserved.
+- Check all abbreviations and ensure each one is defined at first appearance.
+- Preserve established terminology unless the user asks for renaming or the inconsistency is clearly erroneous.
+- If a rewrite seems to require a new term, concept label, or renamed module for readability, ask the user before introducing it broadly.
+- Check that every paper asset has an explicit textual reference and, when appropriate, a corresponding interpretive sentence.
+- Check that each paper asset is placed in the subsection where it is actually used, rather than grouped at the beginning for convenience.
+- After modifying any section, and during any full-paper reread or proofreading pass, visually inspect all related figures and tables again.
+- After updating any paper asset, re-check the paper body from Methods through Conclusion to confirm that logic, references, results, and narrative implications remain consistent.
+- After any update to code, paper assets, or manuscript text, perform a strict consistency review across code, paper, and documentation for internal inconsistencies in terminology, configuration description, claims versus results, and section logic, then report a findings list with exact file references.
+- Check figure captions and table captions explicitly during language review and logical review.
+- If any paper asset remains orphaned after revision, propose removal or reintegration but ask the user for permission before deleting it or its associated assets.
+- Do not explain basic field concepts unless the user explicitly asks for tutorial-style writing.
+- Do not claim novelty, superiority, or theoretical guarantees unless supported by the provided evidence.
+
+## Output Patterns
+
+- When revising existing prose, preserve the technical meaning while increasing precision, cohesion, and maturity.
+- When facts are missing, keep placeholders or neutral wording rather than inventing results.
+- When the user requests critique, prioritize structural weaknesses, vague claims, missing rationale, and evaluation blind spots.
+- When generating LaTeX, return compile-ready text without commentary inside the code block unless the user asks for annotations.
+- When designing research infrastructure, prefer reproducible pipelines that can be rerun end-to-end without hand-editing manuscript assets.
+- When generating figures or tables, pair them with concise Markdown provenance documentation rather than leaving the generation workflow implicit.
+- When changing method mechanisms, record the backup or snapshot point in the relevant project documentation so the revision history remains traceable.
+- When documenting results outside a paper, keep the same standards of traceability, interpretive clarity, and reproducible linkage back to the underlying data artifacts.
+- When generating any research-output asset, keep its summary memo synchronized with the current accepted version.
+- When completing a user-instructed rebuild or modification, keep the memo-folder record synchronized with the accepted project state.
+
+## Common Triggers
+
+- "Rewrite this abstract to sound like a strong systems paper."
+- "Turn these notes into a methodology section in LaTeX."
+- "Make this introduction sound PI-level instead of undergraduate."
+- "Critique the logic and maturity of this related work section."
+- "Polish this experiments section and explain the implications of the results."
+- "Document these benchmark results in a rigorous technical report."
+- "Write a concise results summary for these figures and tables."
+- "WTF"
