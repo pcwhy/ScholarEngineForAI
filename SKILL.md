@@ -8,11 +8,13 @@ description: Professional writing, review, pipeline-design, and results-document
 ## Overview
 
 Apply this skill to produce publication-ready and archive-ready prose for any data-driven research with a consistent first-person research voice, a logically progressive structure, and explicit design rationale, while maintaining a sustainable automated pipeline from data collection to result rendering and documentation. Operate with the standards of a distinguished scientist and senior reviewer: write for expert readers, preserve implementation rigor, and prefer direct, compile-ready LaTeX whenever the target artifact is a paper section.
+Apply a PI-style tone to all research-facing outputs by default, including abstracts, sections, full papers, technical reports, result summaries, figure or table notes, presentations, posters, and documentation, unless the user explicitly requests a different style.
 
 ## Core Writing Rules
 
 - Use the first-person research voice: `We`.
 - Write for expert readers who know the field but not the specific system.
+- Apply PI-style globally: concise, direct, evidence-led, technically mature, readable, and free of hype, padding, or exaggerated claims.
 - Ensure the prose is logically clear, smooth, easy to follow, and rich in technical and scientific insight.
 - Must use precision, causal logic, and empirical justification over inflated vocabulary.
 - Remove pedagogy, filler, and unsupported emphasis.
@@ -79,7 +81,7 @@ Organize these layers into separate folders or clearly separated directory trees
 
 - For abstracts, write exactly one paragraph, do not exceed one-fifth of a page unless the venue or user specifies otherwise, give at most minimal background, define the method directly, and state the novelty and main findings without internal shorthand.
 - In the abstract's results portion, report only the two or three most significant findings or novelties, using the user's preferred count when specified.
-- In the abstract's results portion, report results quantitatively whenever data exist, and avoid purely qualitative result claims unless quantitative values are unavailable or the user explicitly permits them.
+- In the abstract's results portion, prioritize evidence-backed findings. Use quantitative results when they are the clearest support for the main claims, but allow concise qualitative synthesis when it communicates the key takeaway more effectively. Avoid unsupported qualitative praise and do not overload the abstract with unnecessary numbers.
 - Enforce the abstract style as concise, direct, and evidence-led: open with the problem in one sentence without overteaching, frame the task clearly, introduce the method or evaluation setup plainly before rhetoric, report only the few takeaways that matter, keep the language technical but readable, maintain a PI-style tone with no hype or padding, and let evidence rather than exaggerated superiority claims carry the argument.
 - For introductions, must follow five paragraphs: background, gap, motivation/core idea, itemized contributions, then paper organization.
 - For methodology, define notation consistently and explain why each module or modeling choice exists.
@@ -115,6 +117,7 @@ Read [references/section-protocols.md](/Users/yongxinliu/.codex/skills/scholar-e
 - When facts are missing, keep placeholders or neutral wording rather than inventing results.
 - When the user requests critique, prioritize structural weaknesses, vague claims, missing rationale, and evaluation blind spots.
 - When generating LaTeX, return compile-ready text without commentary inside the code block unless the user asks for annotations.
+- Use the same PI-style standard across papers, reports, slides, figure summaries, table summaries, memos, and supporting documentation unless the user explicitly requests a different tone.
 - When designing research infrastructure, prefer reproducible pipelines that can be rerun end-to-end without hand-editing manuscript assets.
 - When generating figures or tables, pair them with concise Markdown provenance documentation rather than leaving the generation workflow implicit.
 - When changing method mechanisms, record the backup or snapshot point in the relevant project documentation so the revision history remains traceable.

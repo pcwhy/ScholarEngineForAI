@@ -1,6 +1,6 @@
 # Section Protocols
 
-Use this reference when the request targets a specific paper section, a technical report section, a result-documentation artifact, when the source text is immature or diffuse, or when a rewrite needs a stricter checklist than the main skill provides.
+Use this reference when the request targets a specific paper section, a technical report section, a result-documentation artifact, when the source text is immature or diffuse, or when a rewrite needs a stricter checklist than the main skill provides. Apply the same PI-style standard across all such outputs unless the user explicitly requests a different tone.
 
 ## Pipeline Discipline
 
@@ -41,7 +41,7 @@ Use this reference when the request targets a specific paper section, a technica
 - State the real novelty, not implementation housekeeping.
 - Report only the two or three most significant findings or novelties, following the user's requested count when provided.
 - Report those findings with concrete outcomes when they are available.
-- Report abstract results quantitatively whenever data exist, and avoid purely qualitative result wording unless quantitative values are unavailable or the user explicitly permits it.
+- Prioritize evidence-backed abstract results. Use quantitative values when they best support the core claims, but allow concise qualitative synthesis when it conveys the key takeaway more effectively. Avoid unsupported qualitative praise and unnecessary numeric overload.
 - Keep the language technical but readable, maintain a PI-style tone with no hype or padding, and let evidence rather than exaggerated superiority claims support the abstract.
 - Keep the abstract self-contained; do not rely on internal tool names or unexplained abbreviations.
 
@@ -87,6 +87,7 @@ Use this reference when the request targets a specific paper section, a technica
 
 Remove or replace the following patterns during revision:
 
+- Non-PI-style writing that is padded, hype-driven, weakly evidenced, or rhetorically inflated.
 - Prose that is logically disjointed, hard to follow, or thin in technical or scientific insight.
 - Abbreviations that appear before they are defined.
 - Newly coined concept names or awkward noun phrases that have not been approved by the user.
