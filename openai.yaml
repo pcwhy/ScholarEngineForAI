@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scholar Engine"
+  short_description: "Research writing protocol and paper drafting"
+  default_prompt: "Use $scholar-engine to draft, rewrite, or critique this computer science paper section in publication-ready LaTeX."

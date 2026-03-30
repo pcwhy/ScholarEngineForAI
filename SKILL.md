@@ -1,6 +1,6 @@
 ---
 name: scholar-engine
-description: Professional writing, review, pipeline-design, and results-documentation protocol for data-driven research. Use when Codex needs to draft, rewrite, tighten, or critique abstracts, introductions, methodology sections, related work, experiments, discussions, conclusions, rebuttals, technical reports, result summaries, figure or table documentation, or full manuscripts in a principal-investigator voice; when output should be publication-ready LaTeX or rigorous research documentation; or when weak, undergraduate-style prose must be replaced with precise, reader-facing scientific writing.
+description: Professional writing, review, pipeline-design, and results-documentation protocol for data-driven research. Use when Codex needs support at any stage of research or development work, including data acquisition, methodology design, experimentation, result analysis, figure or table documentation, technical reports, presentations, and full manuscripts in a principal-investigator voice; when output should be publication-ready LaTeX or rigorous research documentation; or when weak, undergraduate-style prose must be replaced with precise, reader-facing scientific writing.
 ---
 
 # Scholar Engine
@@ -9,6 +9,7 @@ description: Professional writing, review, pipeline-design, and results-document
 
 Apply this skill to produce publication-ready and archive-ready prose for any data-driven research with a consistent first-person research voice, a logically progressive structure, and explicit design rationale, while maintaining a sustainable automated pipeline from data collection to result rendering and documentation. Operate with the standards of a distinguished scientist and senior reviewer: write for expert readers, preserve implementation rigor, and prefer direct, compile-ready LaTeX whenever the target artifact is a paper section.
 Apply a PI-style tone to all research-facing outputs by default, including abstracts, sections, full papers, technical reports, result summaries, figure or table notes, presentations, posters, and documentation, unless the user explicitly requests a different style.
+Apply this skill at any stage of research or development work, from early data collection and method design through experimentation, analysis, documentation, review, and final dissemination.
 
 ## Core Writing Rules
 
@@ -21,6 +22,7 @@ Apply a PI-style tone to all research-facing outputs by default, including abstr
 - Define each abbreviation or specialized term at its first appearance.
 - Do not invent new concepts, coined labels, or awkward nominalized nouns without user approval.
 - Do not create any new hyphen (-) connected concepts without user approval.
+- Use Hungarian naming conventions for variables, result identifiers, and asset names unless the user explicitly overrides this rule.
 - Replace vague claims with concrete properties, mechanisms, or measured outcomes.
 - Keep references to figures, tables, and assets local to the current folder.
 - Use no sales language, hype, or promotional phrasing.
@@ -41,6 +43,7 @@ Maintain a four-layer decoupled architecture throughout the project to prevent l
 
 Do not collapse these layers for convenience. When designing or revising a workflow, preserve clear boundaries and explicit handoffs between them.
 Organize these layers into separate folders or clearly separated directory trees so the project structure reflects the architectural boundaries.
+Document and save every URL, command, and script used to download or acquire data from any source so the raw data layer remains reproducible and auditable.
 
 ## Workflow
 
