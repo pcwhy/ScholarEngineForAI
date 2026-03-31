@@ -60,6 +60,9 @@ Document and save every URL, command, and script used to download or acquire dat
 
 - Preserve full experimental logic; do not simplify algorithms, shrink workloads, or reduce computational fidelity merely to avoid timeouts.
 - Before modifying the mechanisms of a method or other core experimental logic, create a complete backup or snapshot of the project so the prior state can be restored.
+- Keep each code script file at 500 lines or fewer whenever possible; if logic would exceed that limit, split it into smaller modules or helper files unless the user explicitly overrides this rule.
+- Prefer well-annotated IPython notebooks when they are appropriate for exploration, analysis, and result documentation.
+- In an `ipynb`, keep each code cell at 300 lines or fewer whenever possible, and split longer logic into smaller cells with clear Markdown annotation.
 - Add progress reporting to long-running scripts, for example progress bars or periodic status updates.
 - When a rerun changes result files, ensure dependent figures, tables, and manuscript numbers are regenerated from the updated data.
 - Treat the data interaction layer as the single source of truth for rendered artifacts.
