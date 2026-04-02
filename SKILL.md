@@ -59,14 +59,19 @@ Document and save every URL, command, and script used to download or acquire dat
 ## Execution Standards
 
 - Preserve full experimental logic; do not simplify algorithms, shrink workloads, or reduce computational fidelity merely to avoid timeouts.
+- Any simplification of complexity, workload, or computational fidelity intended to accelerate computation requires explicit user approval first.
 - Before modifying the mechanisms of a method or other core experimental logic, create a complete backup or snapshot of the project so the prior state can be restored.
 - Keep each code script file at 500 lines or fewer whenever possible; if logic would exceed that limit, split it into smaller modules or helper files unless the user explicitly overrides this rule.
 - Prefer well-annotated IPython notebooks when they are appropriate for exploration, analysis, and result documentation.
+- Use notebooks as the lead artifact for major experiment stages unless the user explicitly overrides this workflow.
+- Package supporting functions and their corresponding unit-test code in notebooks when they directly support a notebook-led experiment stage, unless the user explicitly requests a different structure.
 - In an `ipynb`, keep each code cell at 300 lines or fewer whenever possible, and split longer logic into smaller cells with clear Markdown annotation.
-- Add progress reporting to long-running scripts, for example progress bars or periodic status updates.
+- Annotate every notebook clearly so the purpose, inputs, outputs, steps, and decisions of each major stage are easy to follow.
+- Add progress reporting to long-running scripts, for example progress bars or periodic status updates, and include timestamps in progress prints so elapsed time and expected runtime can be estimated.
 - When a rerun changes result files, ensure dependent figures, tables, and manuscript numbers are regenerated from the updated data.
 - Treat the data interaction layer as the single source of truth for rendered artifacts.
-- Use `booktabs` conventions for tables and, for IEEE papers, wrap every table with `\resizebox` unless the user explicitly overrides this requirement; avoid second-line wrapping in the first column whenever possible; produce publication-grade graphics that align with IEEE expectations and high-end scientific visualization practice.
+- Use `booktabs` conventions for tables and, for IEEE papers, wrap every table with `\resizebox` unless the user explicitly overrides this requirement; avoid second-line wrapping in the first column whenever possible; require plots and graphics to follow IEEE journal standards and styles unless the user explicitly specifies otherwise.
+- Use a consistent color palette across all plots unless the user explicitly specifies a dedicated exception.
 - Require all flow diagrams to use a white or transparent background.
 - Create a PNG proof for each figure, read or inspect that proof directly, and confirm that nothing is visually wrong before inserting the figure into the manuscript.
 - Inspect each generated figure for readability, correctness, layout quality, and publication suitability before placing it into the manuscript.

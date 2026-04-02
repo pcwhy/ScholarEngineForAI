@@ -16,10 +16,14 @@ Use this reference when the request targets a specific paper section, a technica
 ## Automation Standards
 
 - Create a complete project backup or snapshot before modifying core method mechanisms or experimental logic.
+- Any simplification of complexity, workload, or computational fidelity intended to accelerate computation requires explicit user approval first.
 - Keep each code script file at 500 lines or fewer whenever possible; split larger logic into smaller modules or helper files unless the user explicitly requests otherwise.
 - Prefer clearly annotated IPython notebooks when they fit exploratory analysis, result inspection, or research documentation tasks.
+- Use notebooks as the lead artifact for major experiment stages unless the user explicitly requests another workflow.
+- Package supporting functions and corresponding unit-test code with the notebook-led stage when they directly support that experiment workflow, unless the user explicitly requests a different structure.
 - In notebooks, keep each code cell at 300 lines or fewer whenever possible and separate long workflows into smaller cells with explanatory Markdown.
-- Add progress indicators to long-running scripts instead of replacing rigorous computation with a smaller shortcut.
+- Ensure every notebook is clearly annotated so each stage, dependency, and decision remains understandable during reruns and reviews.
+- Add progress indicators to long-running scripts instead of replacing rigorous computation with a smaller shortcut, and include timestamps so elapsed and expected runtime can be estimated.
 - Preserve computational fidelity when the user requests publication-grade results.
 - Design rerun paths so that updated metrics automatically propagate into figures, tables, and paper text.
 - Prefer deterministic filenames, clear output directories, and stable schemas for result artifacts.
@@ -116,7 +120,8 @@ Remove or replace the following patterns during revision:
 - For IEEE papers, use `\resizebox` for every table unless the user explicitly requests a different approach.
 - Avoid second-line wrapping in the first column of tables whenever possible by adjusting wording, abbreviations, or layout.
 - Avoid abbreviated terms in figures and tables whenever possible; if one must appear, provide a footnote in the paper asset that defines it.
-- Favor professional scientific graphics appropriate for IEEE venues and high-end journal presentation quality.
+- Require plots and graphics to follow IEEE journal standards and styles unless the user explicitly requests a different convention.
+- Use a consistent color palette across plots unless the user explicitly requests a dedicated exception.
 - Create a PNG proof for each figure and inspect it directly before manuscript insertion.
 - Inspect generated figures before insertion and verify legibility, label quality, alignment, and consistency with the manuscript narrative.
 - Render each table after creation or update and visually inspect the rendered table before manuscript insertion or acceptance.
