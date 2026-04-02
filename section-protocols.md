@@ -79,6 +79,7 @@ Use this reference when the request targets a specific paper section, a technica
 - Surface failure modes, tradeoffs, and edge cases where the method underperforms.
 - Verify that reported numbers trace back to structured result artifacts rather than ad hoc notebook output.
 - Report no orphaned result in the paper; every reported result must be supported by figures, tables, or documented result artifacts.
+- After generating or materially revising the results or conclusion, revisit the abstract and update it so the framing, method summary, and final takeaways stay aligned with the completed paper.
 
 ## Results Documentation
 
@@ -98,6 +99,7 @@ Use this reference when the request targets a specific paper section, a technica
 Remove or replace the following patterns during revision:
 
 - Subsections whose style has drifted from the active PI-style standard or the user-provided style reference.
+- Completed sections that have not yet been re-checked for logical consistency, clearness, readability, and style after the final subsection is written.
 - Non-PI-style writing that is padded, hype-driven, weakly evidenced, or rhetorically inflated.
 - Prose that is logically disjointed, hard to follow, or thin in technical or scientific insight.
 - Abbreviations that appear before they are defined.

@@ -57,8 +57,9 @@ Document and save every URL, command, and script used to download or acquire dat
 6. Rewrite for density and continuity by merging short sentences into tighter, logically linked prose where clarity improves.
 7. Justify each technical choice with a design principle, failure mode, or empirical observation.
 8. After generating or revising each subsection, re-check its style against the active PI-style standard or the user-provided style reference.
-9. Check terminology, notation, numerical claims, and dependencies for consistency with the surrounding document and the underlying result files.
-10. Emit clean LaTeX when the user is working in LaTeX or when a paper section is requested without another format.
+9. After completing the last subsection of a section, perform a section-level review for logical consistency, clearness, readability, and language style.
+10. Check terminology, notation, numerical claims, and dependencies for consistency with the surrounding document and the underlying result files.
+11. Emit clean LaTeX when the user is working in LaTeX or when a paper section is requested without another format.
 
 ## Execution Standards
 
@@ -103,6 +104,7 @@ Document and save every URL, command, and script used to download or acquire dat
 - For methodology, define notation consistently and explain why each module or modeling choice exists.
 - For results, describe evaluation scenarios clearly, interpret the implications of the numbers, and discuss limitations or boundary conditions.
 - Report no orphaned result in the paper. Every reported result must be traceable to supporting figures, tables, or documented result artifacts.
+- After generating or materially revising the results or conclusion, revisit the abstract and update it so the problem framing, method summary, and final takeaways remain aligned with the completed paper.
 - For related work, synthesize the literature by approach or philosophy instead of listing papers one by one.
 - For full-paper editing, allow no orphaned paper asset of any kind. Ensure every figure, table, algorithm, equation block, appendix asset, and related manuscript asset is cited, integrated, and discussed where appropriate in the paper body; place each asset only in the subsection where it is actually used and do not dump assets at the beginning of the paper; ask the user for permission before removing any orphaned asset.
 - For generated paper assets, keep `\begin{figure}` / `\begin{table}`, `\caption`, `\label`, centering, font-size directives, and placement options in the manuscript source by default. Do not `\input` a complete generated float directly into the manuscript unless the user explicitly requests that pattern.
