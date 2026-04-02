@@ -34,21 +34,23 @@ Apply this skill at any stage of research or development work, from early data c
 
 ## Research Pipeline Architecture
 
-Maintain a four-layer decoupled architecture throughout the project to prevent logic entanglement and to keep reruns reproducible.
+Maintain a six-layer decoupled architecture throughout the project to prevent logic entanglement and to keep reruns reproducible.
 
 1. Raw Data Layer: isolate data sourcing, scraping, cleaning, and external ingestion from downstream experimentation.
 2. Experimental Layer: keep algorithm implementations, training code, benchmarking routines, and simulation logic pure and independent of manuscript formatting.
 3. Data Interaction Layer: store raw outputs, metrics, and intermediate artifacts in machine-readable bridges such as CSV, JSON, or databases.
 4. Rendering Layer: generate LaTeX, TikZ figures, Booktabs tables, posters, and slides only from the structured outputs in the data interaction layer.
+5. Documentation Layer: maintain formal research documentation such as reports, asset-generation notes, provenance records, and reproducibility instructions.
+6. Internal Memo Layer: maintain internal progress notes, rebuild logs, lessons learned, and working memos that support iterative development and review.
 
 Do not collapse these layers for convenience. When designing or revising a workflow, preserve clear boundaries and explicit handoffs between them.
-Organize these layers into separate folders or clearly separated directory trees so the project structure reflects the architectural boundaries.
+Place each layer in its own dedicated folder unless the user explicitly overrides this structure.
 Document and save every URL, command, and script used to download or acquire data from any source so the raw data layer remains reproducible and auditable.
 
 ## Workflow
 
 1. Identify the target artifact, such as an abstract, a section rewrite, a result summary, a figure or table note, a review response, a technical report, or a full manuscript pass.
-2. Locate the artifact inside the four-layer pipeline before editing; determine whether the request belongs to raw data, experimentation, data exchange, or rendering.
+2. Locate the artifact inside the six-layer pipeline before editing; determine whether the request belongs to raw data, experimentation, data exchange, rendering, documentation, or internal memo work.
 3. Infer the paper's logical role for that artifact before drafting; do not write sentences in isolation from section purpose.
 4. Reconstruct the argument in the standard progression: problem setup, methodology, evaluation setting, results, discussion or conclusion.
 5. Rewrite for density and continuity by merging short sentences into tighter, logically linked prose where clarity improves.

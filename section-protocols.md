@@ -10,8 +10,9 @@ Use this reference when the request targets a specific paper section, a technica
 - Keep experimental code separate from reporting code.
 - Route all metrics, ablations, and benchmark outputs through structured artifacts such as CSV, JSON, or databases before rendering.
 - Regenerate figures, tables, and manuscript numerics from those structured artifacts rather than by manual transcription.
-- When proposing project structure, make the dependency chain explicit: raw data to experiments to result store to rendering.
-- Place different pipeline layers in separate folders or clearly separated directory trees for clarity and maintainability.
+- Keep formal documentation separate from rendering artifacts and separate internal memos from formal documentation.
+- When proposing project structure, make the dependency chain explicit: raw data to experiments to result store to rendering, with documentation and internal memos maintained as separate supporting layers.
+- Place each pipeline layer in its own dedicated folder unless the user explicitly requests a different structure.
 
 ## Automation Standards
 
