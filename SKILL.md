@@ -63,7 +63,7 @@ Document and save every URL, command, and script used to download or acquire dat
 - Preserve full experimental logic; do not simplify algorithms, shrink workloads, or reduce computational fidelity merely to avoid timeouts.
 - Any simplification of complexity, workload, or computational fidelity intended to accelerate computation requires explicit user approval first.
 - Before modifying the mechanisms of a method or other core experimental logic, create a complete backup or snapshot of the project so the prior state can be restored.
-- Keep each code script file at 500 lines or fewer whenever possible; if logic would exceed that limit, split it into smaller modules or helper files unless the user explicitly overrides this rule.
+- For non-notebook code scripts, keep each script file at 500 lines or fewer whenever possible; if logic would exceed that limit, split it into smaller modules or helper files unless the user explicitly overrides this rule.
 - Prefer well-annotated IPython notebooks when they are appropriate for exploration, analysis, and result documentation.
 - Use notebooks as the lead artifact for major experiment stages unless the user explicitly overrides this workflow.
 - Package supporting functions and their corresponding unit-test code in notebooks when they directly support a notebook-led experiment stage, unless the user explicitly requests a different structure.

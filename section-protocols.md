@@ -18,7 +18,7 @@ Use this reference when the request targets a specific paper section, a technica
 
 - Create a complete project backup or snapshot before modifying core method mechanisms or experimental logic.
 - Any simplification of complexity, workload, or computational fidelity intended to accelerate computation requires explicit user approval first.
-- Keep each code script file at 500 lines or fewer whenever possible; split larger logic into smaller modules or helper files unless the user explicitly requests otherwise.
+- For non-notebook code scripts, keep each script file at 500 lines or fewer whenever possible; split larger logic into smaller modules or helper files unless the user explicitly requests otherwise.
 - Prefer clearly annotated IPython notebooks when they fit exploratory analysis, result inspection, or research documentation tasks.
 - Use notebooks as the lead artifact for major experiment stages unless the user explicitly requests another workflow.
 - Package supporting functions and corresponding unit-test code with the notebook-led stage when they directly support that experiment workflow, unless the user explicitly requests a different structure.
