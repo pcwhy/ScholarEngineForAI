@@ -1,6 +1,6 @@
 # Section Protocols
 
-Use this reference when the request targets a specific paper section, a technical report section, a result-documentation artifact, when the source text is immature or diffuse, or when a rewrite needs a stricter checklist than the main skill provides. Apply the same PI-style standard across all such outputs unless the user explicitly requests a different tone.
+Use this reference when the request targets a specific paper section, a technical report section, a result-documentation artifact, when the source text is immature or diffuse, or when a rewrite needs a stricter checklist than the main skill provides. At the beginning of any paper or report generation task, ask for language and style references. Apply the same PI-style standard across all such outputs unless the user explicitly requests a different tone or provides compatible writing samples to follow.
 
 ## Pipeline Discipline
 
@@ -97,6 +97,7 @@ Use this reference when the request targets a specific paper section, a technica
 
 Remove or replace the following patterns during revision:
 
+- Subsections whose style has drifted from the active PI-style standard or the user-provided style reference.
 - Non-PI-style writing that is padded, hype-driven, weakly evidenced, or rhetorically inflated.
 - Prose that is logically disjointed, hard to follow, or thin in technical or scientific insight.
 - Abbreviations that appear before they are defined.
@@ -123,6 +124,7 @@ Remove or replace the following patterns during revision:
 - Avoid abbreviated terms in figures and tables whenever possible; if one must appear, provide a footnote in the paper asset that defines it.
 - Require plots and graphics to follow IEEE journal standards and styles unless the user explicitly requests a different convention.
 - Use a consistent color palette across plots unless the user explicitly requests a dedicated exception.
+- When the user provides graph or diagram style samples, use them as a visual reference when they are directly applicable and compatible with Scholar Engine standards; otherwise preserve the default Scholar Engine visual style.
 - Create a PNG proof for each figure and inspect it directly before manuscript insertion.
 - Inspect generated figures before insertion and verify legibility, label quality, alignment, and consistency with the manuscript narrative.
 - Render each table after creation or update and visually inspect the rendered table before manuscript insertion or acceptance.

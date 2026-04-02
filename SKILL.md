@@ -51,12 +51,14 @@ Document and save every URL, command, and script used to download or acquire dat
 
 1. Identify the target artifact, such as an abstract, a section rewrite, a result summary, a figure or table note, a review response, a technical report, or a full manuscript pass.
 2. Locate the artifact inside the six-layer pipeline before editing; determine whether the request belongs to raw data, experimentation, data exchange, rendering, documentation, or internal memo work.
-3. Infer the paper's logical role for that artifact before drafting; do not write sentences in isolation from section purpose.
-4. Reconstruct the argument in the standard progression: problem setup, methodology, evaluation setting, results, discussion or conclusion.
-5. Rewrite for density and continuity by merging short sentences into tighter, logically linked prose where clarity improves.
-6. Justify each technical choice with a design principle, failure mode, or empirical observation.
-7. Check terminology, notation, numerical claims, and dependencies for consistency with the surrounding document and the underlying result files.
-8. Emit clean LaTeX when the user is working in LaTeX or when a paper section is requested without another format.
+3. At the beginning of generating or revising any paper, report, or similar research-facing document, ask whether the user wants to provide language and style references; if samples are provided, use them as a style reference where they do not conflict with Scholar Engine standards, otherwise keep PI-style strictly.
+4. Infer the paper's logical role for that artifact before drafting; do not write sentences in isolation from section purpose.
+5. Reconstruct the argument in the standard progression: problem setup, methodology, evaluation setting, results, discussion or conclusion.
+6. Rewrite for density and continuity by merging short sentences into tighter, logically linked prose where clarity improves.
+7. Justify each technical choice with a design principle, failure mode, or empirical observation.
+8. After generating or revising each subsection, re-check its style against the active PI-style standard or the user-provided style reference.
+9. Check terminology, notation, numerical claims, and dependencies for consistency with the surrounding document and the underlying result files.
+10. Emit clean LaTeX when the user is working in LaTeX or when a paper section is requested without another format.
 
 ## Execution Standards
 
@@ -78,6 +80,7 @@ Document and save every URL, command, and script used to download or acquire dat
 - Create a PNG proof for each figure, read or inspect that proof directly, and confirm that nothing is visually wrong before inserting the figure into the manuscript.
 - Inspect each generated figure for readability, correctness, layout quality, and publication suitability before placing it into the manuscript.
 - Render each table when it is generated or updated, and visually inspect the rendered result before inserting or keeping it in the manuscript.
+- When creating graphs or diagrams, ask whether the user wants to provide visual style samples; if samples are provided, use them as a style reference where they do not conflict with Scholar Engine standards, otherwise keep the default Scholar Engine visual standards strictly.
 - Treat generated manuscript assets as content fragments, not full manuscript floats, unless the user explicitly requests otherwise. Generated figure or table files should contain only the asset body; the paper source must own the surrounding float wrapper, caption, label, placement, and local presentation controls at the subsection where the asset is actually used.
 - Default flowgraphs and flow diagrams to high-quality vector output unless the user explicitly requests a raster format.
 - Create or maintain a summary memo for each generated research-output asset, including figures, tables, paper sections, full papers, presentations, posters, and slide decks.
@@ -131,6 +134,7 @@ Read [references/section-protocols.md](/Users/yongxinliu/.codex/skills/scholar-e
 - When the user requests critique, prioritize structural weaknesses, vague claims, missing rationale, and evaluation blind spots.
 - When generating LaTeX, return compile-ready text without commentary inside the code block unless the user asks for annotations.
 - Use the same PI-style standard across papers, reports, slides, figure summaries, table summaries, memos, and supporting documentation unless the user explicitly requests a different tone.
+- At the beginning of any paper or report generation task, ask for language and style references. When the user provides writing samples, use them as a style reference when they are directly applicable and compatible with PI-style rigor; otherwise preserve PI-style by default.
 - When designing research infrastructure, prefer reproducible pipelines that can be rerun end-to-end without hand-editing manuscript assets.
 - When generating figures or tables, pair them with concise Markdown provenance documentation rather than leaving the generation workflow implicit.
 - When changing method mechanisms, record the backup or snapshot point in the relevant project documentation so the revision history remains traceable.
