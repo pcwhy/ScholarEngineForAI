@@ -1,33 +1,104 @@
-**AI写Paper的四阶段法**
+# The Four-Phase Method for Using AI to Write a Paper
 
-每一个阶段结束前必须要AI写memo，写清楚做了啥，lesson Learned，为下一阶段打好基础。新阶段必须重新开一个对话，原因是目前的AI对于高质量学术研究-写作流程来说上下文窗口还是不够长，一旦信息过载就会触发数据有损压缩，表现就是AI变得傻到不行，也不积极干活。以下四阶段法在OpenAI Codex下跑通：
+Before the end of every phase, you must have the AI write a memo that clearly states what was done, what lessons were learned, and how to lay the groundwork for the next phase. Each new phase must start in a fresh conversation. The reason is that, for a high-quality academic research and writing workflow, current AI systems still do not have a long enough context window. Once the context becomes overloaded, lossy compression starts to happen, and the result is that the AI suddenly becomes much dumber and much less proactive. The following four-phase method has been tested successfully under OpenAI Codex.
 
-**Phase I:**
+## Phase I
 
-I.1：喂好的种子文献，用arxiv-to-prompt或者arxiv2md，让AI知道你的Context，最重要的，说话方式，不然出来的结果就是课程大作业。这一步需要平时你有收藏好文献的习惯。
+### I.1 Seed the AI with strong papers
 
-I.2：我想做的东西有没有学术价值，是不是大路货，初步确定哪块别人做的少；也可以从时效性（能蹭到啥热点不？）、故事性（跨领域降维打击解决痛点、新奇的发现、新的套路，反正就是网红套路），预期回答的问题有没价值（稀缺性或者是吸睛程度）、跨领域性、理论深度，几个方面让AI给你找并综合对比。要弄出一个计划，形成文档。要形成一个支撑足够的论文计划，一般来说IEEE 会议参考文献20个起，期刊可以到35个。这里要提醒一点，注意区分工程师跟科学家的思维差异：工程师：这个系统这么做就能work了（可以发EI论文，有概率能出SCI）；科学家：为啥别的系统没work，是不是有隐藏的pattern大家没来得及研究，或者数学模型呢，能不呢换个全新的角度审视这个问题，会不会就有更好的解决方案了，数学模型能不能揭示隐藏在表面现象之下的pattern呢？好像这个系统还不是太好，看看哪些情形它出问题，看看它底层的数学/数值模型/信号流啥的怎么说的，能不能换个角度完善或者试试直接从底层重建一个完全不一样的系统呢（专利或者好的SCI就要走到科学家的思维上了）。。。这个阶段必须要AI根据事实一步一步求证推导，不懂跟不确定就直接提出来。
+Feed the AI a set of strong seed papers. Use tools such as `arxiv-to-prompt` or `arxiv2md` so the AI can understand your context and, most importantly, your writing style. Otherwise, the output will read like a class project. This step requires you to already have a habit of collecting good papers.
 
-**Phase II：**
+### I.2 Validate the research value and form a plan
 
-II.1：根据Phase I的计划开始写代码实现，对结果进行画图处理，一定要指定是IEEE Style，生成论文初稿。这一阶段尽可能多的让AI去探索各种组合、技巧，得到充足的数据，这一点也要你平时多看文献跟新闻，知道痛点在哪。重要提示，AI写的程序必须要输出progress updates，不然会超时，然后AI给你改简单，你要让它尽量生成colab notebook，每个cell坚决不准超过300行代码，要用.py文件也要规定每个.py文件不许超过400行代码，并且一切都得严格用匈牙利命名法，不然你就会无法维护。图画的好不好体现了你平时有没收藏好文章，特别是nature跟science的。特别的如果要re-run一定要让AI记得update论文里的图！！！尽量让AI用Bookstab画表格，同时，还要让AI知道把实验结果跟Latex渲染放在两个不同stage里，不然每次更新论文格式要重新跑仿真会很崩溃。也可以一开始就把整个过程分成原始数据层（AI有很大可能会去爬取别的数据，让它保留好爬虫代码，并标注什么时候开发的），实验层、数据交互层（原始结果）、渲染层（论文、poster、Slides）
+Ask whether the thing I want to do has academic value, whether it is just a generic mainstream topic, and roughly which area has been less explored by others. You can also have the AI search for and compare possibilities from several angles:
 
-II.2：让AI通读论文，你要指出所有不专业的画图跟表达，让AI改好。特别是Introduction部分，五段式写法： a.大背景为啥要做这个，普适意义。b.前人做了啥有啥共同缺憾。c.这篇文章受了哪些启发。d.itemize这篇文章的学术贡献（一般来说不可以超过4点，特别的，贡献不是你做了啥工作（因为没人care），而是你发现了啥新奇的东西，回答了什么问题，你的理论突破/技术创新在哪）e. Organization Paragraph。 Introduction一页到一页半，不要过头。Abstract里头最多4行讲背景跟意义，其余是你的方法，亮点跟结果，我建议只挑两个最骄傲的结果或者最独特的发现放摘要里。Related work中有可能一定要把你的work跟别人的列表对比特点。Introduction中可以用Gemini Pro + NanoBanana生成一个提纲挈领的总图，方法是把全文的Latex Code给它并给个样式参考就行（你还得收藏文献，不然好的样式你找不到的）
+- timeliness (can it ride a current trend?)
+- storytelling value (cross-domain transfer that solves a pain point, a novel finding, a new paradigm—in short, something with strong “viral” appeal)
+- whether the target research questions are worth answering (in terms of scarcity or attention-grabbing value)
+- interdisciplinarity
+- theoretical depth
 
-II.3：AI去看出错/性能不好的地方，让它迭代完善你论文里的研究方案，并生成完整初稿。
+A plan must be produced and written down as a document. To support a sufficiently solid paper plan, as a rule of thumb, an IEEE conference paper should usually have at least 20 references, while a journal paper may go up to around 35.
 
-II.4：让AI再通读一遍，不准在没有人类审核的情况下创造新概念，保证每个图跟表都在正文中提到了，没有Orphan Figures or Tables，去除冗余跟Self-Defensive expressions, Check whether it contains the pattern of saying something and then trying to emphasize its importance, if there is any then remove. Check all abbreviations, make sure they are defined at first appearance. 至少第一轮的技术报告是一个普通会议的水平，详细说明了系统是如何搭建的，性能如何，这一步也要你平时阅读文献，不然你看不出来水平如何。
+One important point here is to distinguish between the mindset of an engineer and that of a scientist:
 
-II.5: 让AI把代码文档化，生成Markdown文档，如果有必要可以借助Doxygen，特别的要写清楚每个图、表是怎么生成的，并给每个图/表，也就是paper asset写一段文字说明，里头有啥，干啥用的，生成它代码在哪。特别的，要确保有这两项功能，并且verify，a）如何从新运行，update全部数据。b）如何update全部数据、图、表并重新生成论文PDF。
+- **Engineer:** This system can be made to work this way. That may already be enough for an EI-indexed paper, and possibly even an SCI paper.
+- **Scientist:** Why did other systems not work? Is there some hidden pattern that nobody has had time to study, or perhaps an underlying mathematical model? Could this problem be re-examined from a completely new angle and yield a better solution? Can a mathematical model reveal patterns hidden beneath the surface phenomena? This system still does not seem good enough—under what situations does it fail? What do its underlying mathematics, numerical model, or signal flow say? Can the system be improved from another angle, or even rebuilt from the ground up into something fundamentally different? That is the level of thinking needed for patents or strong SCI papers.
 
-**Phase III:**
+At this stage, the AI must reason step by step based on facts, verification, and derivation. Whenever it does not understand something or is uncertain, it should say so directly.
 
-III.1：让AI重新审视这篇论文的代码跟表达，把一眼能看到的问题修掉。
+## Phase II
 
-III.2: 根据现有的数据跟结果，如何重新组织论文，从标题到Conclusion，做到Research Finding be valuable to the society/ or a good story，然后全文重写一遍。
+### II.1 Implement, experiment, visualize, and draft
 
-III.3 去除Redundant，去除Self-Defensive的表达。
+Start implementing the plan from Phase I. Write the code, generate figures from the results, explicitly specify IEEE style, and produce a first draft of the paper. At this stage, let the AI explore as many combinations and techniques as possible so that you obtain sufficient data. This also depends on how much literature and news you normally read, because that is how you know where the real pain points are.
 
-**Phase IV：**
+Important note: any program written by AI must output progress updates. Otherwise it may time out, and then the AI will try to simplify the code for you. Ideally, have it generate a Colab notebook. No cell should exceed 300 lines of code. If `.py` files are used, require that no `.py` file exceed 400 lines. Also, everything must strictly follow Hungarian notation; otherwise the codebase will become unmaintainable.
 
-IV.1: 这一步结束后人工通读精修一遍，消除假参考文献（配合 Sourcely，Paperpal， Elicit），车轱辘话与幻觉，给这篇论文赋予真正的烟火气。
+The quality of the figures reflects whether you have accumulated enough good papers as references, especially from journals like *Nature* and *Science*. If you need to re-run experiments, make sure the AI remembers to update the figures in the paper as well. As much as possible, have the AI use `booktabs` for tables. Also make sure it separates the experiment stage from the LaTeX rendering stage; otherwise every paper-formatting update will force you to rerun the simulations, which is extremely frustrating.
+
+You may also divide the whole process from the start into:
+
+- the **raw data layer** (AI will often try to scrape extra data; make sure it preserves the crawler code and labels when it was developed)
+- the **experiment layer**
+- the **data interaction layer** (raw outputs)
+- the **rendering layer** (paper, poster, slides)
+
+### II.2 Professionalize the writing and figures
+
+Have the AI read through the paper, and point out every unprofessional figure and expression so it can fix them. The **Introduction**, in particular, should follow a five-paragraph structure:
+
+1. the big-picture background and why this work matters in a general sense
+2. what previous work has done and what common shortcomings remain
+3. what inspired this paper
+4. an itemized list of the paper’s academic contributions
+5. the organization paragraph
+
+The Introduction should be around one to one and a half pages, not overly long.
+
+A contribution should usually not exceed four items. More importantly, a contribution is **not** simply what work you did, because nobody cares about that. A contribution is what novel thing you discovered, what question you answered, and where your theoretical breakthrough or technical innovation lies.
+
+In the **Abstract**, spend at most four lines on background and significance. The rest should focus on your method, highlights, and results. It is better to select only the two results you are most proud of, or the two most distinctive findings, for the abstract.
+
+In the **Related Work** section, it may be necessary to compare your work against others in a list or table of distinctive features.
+
+For the Introduction, you can also use Gemini Pro + NanoBanana to generate a high-level overview figure that captures the whole paper. The method is simply to give it the full LaTeX code of the paper together with a style reference. Again, that requires you to have collected good papers beforehand, otherwise you will not be able to find good stylistic references.
+
+### II.3 Iterate based on errors and weak performance
+
+Let the AI inspect where the system fails or where performance is poor. Have it iteratively improve the research design in your paper and generate a complete full draft.
+
+### II.4 Enforce consistency and remove weak writing
+
+Let the AI read through the paper once again. It must not invent new concepts without human review. Make sure every figure and table is explicitly mentioned in the main text, with no orphan figures or tables. Remove redundancy and self-defensive expressions. Check whether the paper contains a pattern of making a statement and then immediately trying to over-emphasize its importance; if so, remove that. Check all abbreviations and make sure each one is defined the first time it appears.
+
+At a minimum, the first-round technical report should already be at the level of an ordinary conference paper, clearly explaining how the system was built and how it performs. This step also depends on your own reading experience, because otherwise you may not be able to judge the quality level.
+
+### II.5 Document the code and the paper assets
+
+Have the AI document the code and generate Markdown documentation. If necessary, use Doxygen. In particular, clearly explain how every figure and table was generated. For each figure/table—that is, each paper asset—write a short description of what it contains, what it is for, and where the code that generated it is located.
+
+In particular, make sure the project has, and verify, the following two capabilities:
+
+- how to rerun everything from scratch and update all data
+- how to update all data, figures, and tables and then regenerate the paper PDF
+
+## Phase III
+
+### III.1 Fix obvious issues in code and writing
+
+Have the AI re-examine both the code and the writing of the paper, and fix all obvious problems that can be seen at a glance.
+
+### III.2 Reorganize the paper around value and story
+
+Based on the existing data and results, reconsider how to reorganize the paper—from the title all the way to the conclusion—so that the research findings become valuable to society and/or form a good story. Then rewrite the whole paper.
+
+### III.3 Remove redundancy and self-defensive language
+
+Remove redundancy and remove self-defensive language.
+
+## Phase IV
+
+### IV.1 Human final pass
+
+After this step, a human should read through the paper carefully and do a final round of polishing: eliminate fake references (with the help of tools such as Sourcely, Paperpal, and Elicit), remove repetitive wording and hallucinations, and give the paper a real human touch.
