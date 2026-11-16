@@ -31,6 +31,8 @@ Apply this skill at any stage of research or development work, from early data c
 - Avoid abbreviated terms in figures and tables whenever possible; if an abbreviation must be used, include a footnote within the paper asset that defines it.
 - Require each paper-asset label to match its filename stem exactly, unless the user explicitly overrides this rule.
 - Use only the `[h]` float option for figures and tables unless the user explicitly overrides this rule.
+- Do not introduce new terminology for a phenomenon if an existing, widely understood statistical or machine-learning term can describe it accurately. New terms must be justified by a distinct definition, a measurable property, and a clear reason why existing terminology is insufficient. Internal shorthand must not be presented as an established scientific concept.
+- Do not infer an underlying mechanism merely from a recurring behavioral pattern. Describe the observation first, then distinguish competing explanations through controlled experiments.
 
 ## Research Pipeline Architecture
 
